@@ -1,6 +1,6 @@
 package com.eccomerce.backend.model;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,17 +14,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String description;
-    private BigDecimal price;
-    private Integer stock;
-
-    @jakarta.persistence.ManyToOne
-    private Promotion promotion;
-
+    private Double discountPercentage;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private boolean active;
 }
